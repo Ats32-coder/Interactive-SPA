@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  --panel: rgba(39, 43, 57, 0.92);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f6f7fb;
+  --muted: #9ca3b3;
+  --chip: rgba(255, 255, 255, 0.05);
+  --chip-active: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 16% 22%, rgba(83, 24, 131, 0.38), transparent 24%),
+    radial-gradient(circle at 87% 88%, rgba(18, 48, 122, 0.32), transparent 18%),
+    linear-gradient(180deg, #060918 0%, #040714 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root,
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-glow {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.background-glow--left {
+  top: 3rem;
+  left: -8rem;
+  width: 26rem;
+  height: 26rem;
+  background: rgba(98, 31, 157, 0.38);
+}
+
+.background-glow--right {
+  right: -4rem;
+  bottom: -2rem;
+  width: 22rem;
+  height: 22rem;
+  background: rgba(25, 61, 160, 0.35);
+}
+
+.hero {
+  min-height: 66vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.hero-label,
+.hero-subtitle,
+.section-heading p,
+.empty-state,
+.project-meta,
+.footer a {
+  color: var(--muted);
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(3.8rem, 10vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  word-spacing: 0.35em;
+}
+
+.hero-portfolio {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1rem, 2.6vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  color: rgba(255, 255, 255, 0.88);
+  text-transform: uppercase;
+}
+
+.hero-label {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.hero-subtitle {
+  margin: 1rem 0 2rem;
+  font-size: 1rem;
+}
+
+.projects-section {
+  width: min(760px, calc(100% - 2rem));
+  margin: -3rem auto 0;
+  padding-bottom: 5rem;
+}
+
+.section-heading h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.section-heading p {
+  margin: 0 0 1.4rem;
+}
+
+.add-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+}
+
+.project-input,
+.project-edit-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  outline: none;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.project-input:focus,
+.project-edit-input:focus {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.add-button,
+.filter-chip,
+.project-button {
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.add-button:hover,
+.filter-chip:hover,
+.project-button:hover {
+  transform: translateY(-1px);
+}
+
+.add-button {
+  min-width: 72px;
+  height: 56px;
+  padding: 0 1.1rem;
+  background: white;
+  color: #111827;
+  font-weight: 700;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0 1.2rem;
+}
+
+.filter-chip {
+  height: 40px;
+  padding: 0 0.95rem;
+  background: var(--chip);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.filter-chip--active {
+  background: var(--chip-active);
+}
+
+.empty-state {
+  margin: 2rem 0 0;
+  font-size: 1.1rem;
+}
+
+.project-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  background: rgba(15, 19, 32, 0.84);
+}
+
+.project-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.project-meta {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.project-main {
+  flex: 1;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.project-button {
+  height: 40px;
+  padding: 0 0.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.footer {
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 56vh;
+  }
+
+  .add-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-actions {
+    justify-content: flex-start;
+  }
+}
